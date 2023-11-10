@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&family=Lato&display=swap');
+
+html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+}
+
+/* .main-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+} */
+
+
+
+
+#add__room{
+    font-size: 2rem;
+    height: 3rem;
+    width: 3rem;
+}
+
+.form__add-room{
+    display: none;
+}
+
+#join__room{
+    font-size: 2rem;
+    height: 3rem;
+    width: 3rem;
+}
+
+.form__join-room{
+    display: none;
+}
+
+.link__room{
+    display: block;
+}
+
+
+/* the below is the styling for the signup page*/
+.main__signup, .main__login{
+    padding: 6rem 8rem;
+    background-color: lightgray;
+}
+
+.main__rooms{
+    padding: 6rem 8rem;
+    background-color: lightgray;
+}
+
+.user__rooms{
+    background-color: white;
+}
+
+.signup__form,.login__form{
+    margin: 0 auto;
+    max-width: 55rem;
+    padding: 5rem 7rem;
+    background-color: white;
+}
+
+.form__login{
+    display: flex;
+    flex-direction: column;
+}
+
+.login__header, .signup__header{
+    font-size: 2.25rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 3.5rem;
+    letter-spacing: 0.1rem;
+    /* color: transparent; */
+    /* background-color: white;
+    background-image: linear-gradient(to right, #0000cd, #1e90ff); */
+      /* Set the background color */
+  background: linear-gradient(to right, #0000cd, #00bfff);
+  /* Mask the color to the text, and remove the rest  */
+    -webkit-background-clip: text;
+  /* Make the text fill color value transparent so the masked background color comes through */
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+
+    
+}
+
+.form__group{
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__label{
+    margin-bottom: 0.75rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.form__input{
+    font-size: 1.5rem;
+    padding: 1rem 1.25rem;
+    background-color: #f2f2f2;
+}
+
+
+.btn__signup, .btn__login{
+    background-color: #1e90ff;
+    font-size: 1.6rem;
+    padding: 1.4rem 3rem;
+    border-radius: 10rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    border-style: hidden;
+    width: 15rem;
+    cursor: pointer;
+}
+
+
+/* this is the stylin for the user rooms*/
+
+.nav__all-rooms{
+    display: flex;
+    background-image: linear-gradient(to right, #4169e1, #00bfff);
+    color: white;
+    border: 4px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3rem 3rem;
+}
+
+
+.user__name{
+    font-size: 2.25rem;
+    text-transform: uppercase;
+    /* padding: 3rem; */
+    letter-spacing: 0.1rem;
+    margin: 0;
+    align-self: center;
+}
+
+.nav__logout{
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    border: 3px solid white;
+    border-radius: 10rem;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.room__functions{
+    display: flex;
+    flex-direction: row;
+}
+
+.rooms__group{
+
+    min-width: 40%;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    background-image: linear-gradient(to bottom right, #4169e1, #00bfff);
+    min-height: 80vh;
+}
+
+.individual__room{
+    margin-top: 3rem;
+    padding-left: 3rem;
+    border-bottom: 2px solid whitesmoke;
+    margin-bottom: 3rem;
+}
+
+/* .room__name, .room__passcode{
+    color: white;
+    text-decoration: none;
+} */
+.link__room{
+    /* text-decoration: none; */
+    color: white;
+    text-decoration: none;
+
+}
+
+.add__room-label, .join__room-label{
+    font-size: 1.4rem;
+}
+
+.add_and_join_room{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem 4rem;
+    grid-gap: 16rem;
+}
+
+
+.room__name-label, .room__passcode-label{
+    display: block;
+}
+
+.form__add-room, .form__join-room{
+    /* background-image: linear-gradient(to bottom right, #4169e1, #00bfff);0 */
+    border: 3px solid black;
+    padding: 3rem 5rem;
+    padding-top: 1rem;
+    margin-top: 2rem;
+}
+
+.close_form{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* justify-items: end; */
+}
+
+.close_symbol-add, .close_symbol-join{
+    grid-column: 7;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    padding: 0.5rem;
+    display: none;
+}
+/* .room__name-label, .room__passcode-label{
+    /* margin-bottom: 0.3rem; */
+/* } */ 
+
+/* #room-name, #room-passcode{
+    margin-bottom: 0.6rem;
+} */
+
+.form__group-room{
+    margin-bottom: 1rem;
+}
+
+
+.submit-room{
+    display: block;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    background-color: #00bfff;
+    border-radius: 10rem;
+    padding: 1.4rem 3rem;
+    margin-top: 1rem;
+}
+
+
+/* the styling for the maps is done here */
+.room__name {
+    padding: 2rem;
+    background-image: linear-gradient(to bottom right, #0000cd, #00bfff);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1.6rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.arrow{
+    font-size: 3rem;
+    align-self: center;
+    margin-right: 2rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.users-and-map{
+    display: flex;
+    flex-direction: row;
+}
+
+.users-list{
+    min-height: 900px;
+    background-image: linear-gradient(to bottom right, #0000cd, #00bfff);
+    width: 20rem;
+    margin-right: 3rem;
+    color: white;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+}
+
+.list__user-name{
+    padding-left: 1rem;
+    height: 4rem;
+    border-bottom: 2px solid white;
+}
+
+.form{
+    margin-bottom: 2rem;
+}
+
+#search{
+    width: 115rem;
+    height: 3rem;
+    font-size: 1.6rem;
+    margin-right: 1.5rem;
+    margin-top: 1.5rem;
+    /* font-size: 1.5rem; */
+}
+
+#search-button{
+    font-size: 1.5rem;
+    padding: 0.7rem 1rem;
+    background-color: blue;
+    color: white;
+}
+
+.locations{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.address{
+    height: 5rem;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.location_chat{
+    border: 2px solid #00bfff;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+}
+
+.chat__info{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    /* align-items: center; */
+}
+.history__username{
+    text-transform: capitalize;
+    font-size: 2rem;
+    margin: 0;
+    margin-right: 2rem;
+}
+
+.history__time{
+    margin: 0;
+    align-self: center;
+    font-size: 1.2rem;
+}
+
+.history__locationName{
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+
+/* this is the styling for alert */
+.alert{
+    position: fixed;
+    top: 0;
+    left: 25%;
+    z-index: 9999;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 1.6rem 15rem;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+    color: whitesmoke;
+}
+
+.alert--success {
+    background-color: #20bf6b;
+}
+.alert--error {
+  background-color: #eb4d4b;
+}

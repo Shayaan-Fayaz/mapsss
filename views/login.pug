@@ -1,0 +1,16 @@
+extends base 
+
+block content
+        main.main__login
+            div.login__form
+                h1.login__header Login 
+                form.form__login
+                    div.form__group
+                        label.form__label(for="email") Email:
+                        input.form__input#email(type="text" placeholder="you@example.com") 
+                    
+                    div.form__group
+                        label.form__label(for="password") Password:
+                        input.form__input#password(type="text" placeholder="••••••••") 
+
+                    input.btn__login(type="submit", value="Login")

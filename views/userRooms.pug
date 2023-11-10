@@ -1,0 +1,44 @@
+extends base
+
+block content
+        main.main__rooms 
+            div.user__rooms
+                div.nav__all-rooms
+                    h1.user__name= user.name 
+                    a.nav__logout LOGOUT
+
+                div.room__functions
+                    div.rooms__group
+                        each room in user.rooms
+                            a.link__room(href=`/rooms/${room.slug}`) 
+                                div.individual__room
+                                    //- a.link__room(href=`/rooms/${room.slug}`)= room.name
+                                    p= room.name
+
+                    div.add_and_join_room
+                        label.add__room-label(for="add__room") Add Room
+                            input#add__room(type="button", value="+", userid=user.id) 
+                        
+                            div.close_form 
+                                button.close_symbol-add X
+                            form.form__add-room 
+                                div.form__group-room
+                                    label.room__name-label(for="room-name") Room Name:
+                                    input#room-name(type="text") 
+                                
+                                div.form__group-room
+                                    label.room__passcode-label(for="room-passcode") Room Passcode:
+                                    input#room-passcode(type="text") 
+
+                                input.submit-room(type="submit")
+
+                        label.join__room-label(for="join__room") Join Room
+                            input#join__room(type="button", value="+", userid=user.id) 
+                            div.close_form 
+                                button.close_symbol-join X
+                            form.form__join-room
+                                div.form__group-room
+                                    label(for="join-passcode") Room Passcode: 
+                                    input#join-passcode(type="text")
+
+                                input.submit-room(type="submit")
