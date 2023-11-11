@@ -1,8 +1,11 @@
 import { showAlert } from './alert.js'
 
+const socket = io();
+
+
 document.querySelector('#add__room').addEventListener('click', async e => {
     // e.preventDefault();
-    const userId = document.querySelector('#add__room').getAttribute('userid');
+    // const userId = document.querySelector('#add__room').getAttribute('userid');
     
     const roomForm = document.querySelector('.form__add-room');
     roomForm.style.display = 'block';
@@ -15,39 +18,43 @@ document.querySelector('#add__room').addEventListener('click', async e => {
         close.style.display = 'none'
     })
 
-    roomForm.addEventListener('submit', async(e) => {
-        const roomName = document.querySelector('#room-name').value;
-        const roomPasscode = document.querySelector('#room-passcode').value;
 
-        const room = await axios({
-            method: 'POST',
-            url: 'http://127.0.0.1:3000/api/v1/rooms',
-            data:{
-                name: roomName,
-                passcode: roomPasscode,
-                userId: userId
-            }
-        });
-
-        const roomId = room.data.data.data._id
-        
-        const updatedUser = await axios({
-            method: 'PATCH',
-            url: 'http://127.0.0.1:3000/api/v1/users',
-            data:{
-                roomId: roomId,
-                userId: userId
-            }
-        });
-
-        
-    })
 
 });
 
 
+const roomForm = document.querySelector('.form__add-room');
+roomForm.addEventListener('submit', async(e) => {
+    e.preventDefault();
+    const userId = document.querySelector('#add__room').getAttribute('userid');
+    const roomName = document.querySelector('#room-name').value;
+    const roomPasscode = document.querySelector('#room-passcode').value;
+
+    const room = await axios({
+        method: 'POST',
+        url: 'http://127.0.0.1:3000/api/v1/rooms',
+        data:{
+            name: roomName,
+            passcode: roomPasscode,
+            userId: userId
+        }
+    });
+
+    const roomId = room.data.data.data._id
+    
+    const updatedUser = await axios({
+        method: 'PATCH',
+        url: 'http://127.0.0.1:3000/api/v1/users',
+        data:{
+            roomId: roomId,
+            userId: userId
+        }
+    });
+    location.reload(true)
+})
+
 document.querySelector('#join__room').addEventListener('click', e=> {
-    const userId = document.querySelector('#join__room').getAttribute('userid');
+    // const userId = document.querySelector('#join__room').getAttribute('userid');
 
     const joinForm = document.querySelector('.form__join-room');
     joinForm.style.display = 'block';
@@ -60,30 +67,48 @@ document.querySelector('#join__room').addEventListener('click', e=> {
         close.style.display = 'none';
     })
 
-    joinForm.addEventListener('submit', async(e) => {
-        const roomPasscode = document.querySelector('#join-passcode').value;
-        
-        const res = await axios({
-            method: 'PATCH',
-            url: 'http://127.0.0.1:3000/api/v1/rooms',
-            data:{
-                userId: userId,
-                passcode: roomPasscode
-            }
-        });
-        
-        const roomId = res.data.data.room._id;
-        
-        const userupdate = await axios({
-            method: 'PATCH',
-            url: 'http://127.0.0.1:3000/api/v1/users',
-            data:{
-                roomId: roomId,
-                userId: userId
-            }
-        })
-    })
+
 });
+
+const joinForm = document.querySelector('.form__join-room');
+joinForm.addEventListener('submit', async(e) => {
+    // e.preventDefault();
+    const roomPasscode = document.querySelector('#join-passcode').value;
+    const userId = document.querySelector('#join__room').getAttribute('userid');
+
+    
+    const res = await axios({
+        method: 'PATCH',
+        url: 'http://127.0.0.1:3000/api/v1/rooms',
+        data:{
+            userId: userId,
+            passcode: roomPasscode
+        }
+    });
+
+    const newUserRoom = res.data.data.room.name;
+    // console.log(res.data.data.room.name)
+
+    
+    const roomId = res.data.data.room._id;
+    
+    const userupdate = await axios({
+        method: 'PATCH',
+        url: 'http://127.0.0.1:3000/api/v1/users',
+        data:{
+            roomId: roomId,
+            userId: userId
+        }
+    })
+
+    // console.log(userupdate.data.data.user.name);
+    const newUsername = userupdate.data.data.user.name;
+
+    socket.emit('newUserJoined', { newUserRoom, newUsername});
+
+    location.reload(true);
+})
+
 
 document.querySelector('.nav__logout').addEventListener('click', async () => {
     try{

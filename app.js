@@ -23,7 +23,7 @@ dotenv.config({ path: './config.env' });
 
 const app = express();
 
-mongoose.connect('mongodb://127.0.0.1:27017/mapss').then(console.log('DB connection successful')).catch(err => console.log(err));
+mongoose.connect(`mongodb+srv://shayaanfayaz:${process.env.DB_PASSWORD}@cluster0.8lpva5k.mongodb.net/mapsss`).then(console.log('DB connection successful')).catch(err => console.log(err));
 
 const server = http.createServer(app);
 
@@ -59,6 +59,12 @@ io.on('connection', socket => {
         const data = marker.formatMessageMarker(locationName, latitude, longitude, userData, roomData, time);
         // the formatted data is emitted using socket
         io.to(data.roomname).emit('putMarker', data)
+    })
+
+    // the below sockets checks whether the user joined a new room and then emit an event which will update the users list in that particular room so that it can be seen by other members currently present in the room
+    socket.on('newUserJoined', ({ newUserRoom, newUsername }) => {
+        // console.log(newUserRoom,newUsername);
+        io.to(newUserRoom).emit('updateNewUser', newUsername);
     })
     
 })

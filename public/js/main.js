@@ -5,7 +5,7 @@ const socket = io();
 
 // the below event gets the formated message from the server and uses websockets to mark the marker and append the data in the "history" class
 socket.on('putMarker', marker => {
-        console.log(marker);
+        // console.log(marker);
         
         const history = document.querySelector('.history');
         const locationMarker = document.createElement('div');
@@ -14,6 +14,19 @@ socket.on('putMarker', marker => {
         history.append(locationMarker);
         var mark = L.marker([marker.latitude, marker.longitude]).addTo(map);
         map.flyTo([marker.latitude, marker.longitude], 7)
+})
+
+
+// the below socket.on method will see if a new user joined using the join room form and then update it in the users list of the particular room so other users in the room can see it
+socket.on('updateNewUser', newUser => {
+        console.log(newUser);
+        const usersList = document.querySelector('.users-list');
+        const p = document.createElement('p');
+        p.classList.add('list__user-name');
+        p.innerHTML = newUser;
+
+        usersList.append(p);
+        
 })
 
 // this sets the map
@@ -33,9 +46,6 @@ locationData.forEach( el => {
 
 
 socket.emit('joinRoom', {roomData, userData});
-
-console.log(roomData);
-console.log(userData);
 
 // socket.on('roomUsers', users => {
 //         outputRoomUser(users);

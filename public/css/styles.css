@@ -378,3 +378,15 @@ body{
 .alert--error {
   background-color: #eb4d4b;
 }
+
+
+.newuser__signup,.olduser__login{
+    margin-top: 2rem;
+}
+.signup__link, .login__link{
+    /* margin-top: 2rem; */
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 400;
+    text-decoration: none;
+}
