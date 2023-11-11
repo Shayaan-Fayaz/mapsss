@@ -1,0 +1,40 @@
+extends base 
+
+block content
+        div.room__name
+            a(href="/me").arrow &larr;
+            h1= room.name
+
+        div.users-and-map
+            div.users-list
+                    each user in room.users 
+                        p.list__user-name= user.name
+            div.main-container
+                div(style="height: 900px; width:1700px;")#map
+
+        div.search
+            form.form
+                input#search(type="text")
+                input#search-button(type="submit" value="Search")
+
+            div.locations
+
+        div.history
+            h3 Locations
+            each location in locations 
+                div.location_chat
+                    div.chat__info
+                        p.history__username= location.user.name
+                        p.history__time= location.time
+                    p.history__locationName= location.name
+
+            
+                
+
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js')
+        script. 
+            var userData = !{JSON.stringify(user)};
+            var roomData = !{JSON.stringify(room)};
+            var locationData = !{JSON.stringify(locations)}
+        script(src="/socket.io/socket.io.js")
+        script(src="/js/main.js") 

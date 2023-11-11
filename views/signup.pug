@@ -1,0 +1,24 @@
+extends base
+
+block content
+        main.main__signup
+            div.signup__form
+                h1.signup__header Signup 
+                form.form__signup 
+                    div.form__group
+                        label.form__label(for="name") Name:
+                        input.form__input#name(type="text")
+                    
+                    div.form__group
+                        label.form__label(for="email") Email: 
+                        input.form__input#email(type="text", placeholder="you@example.com") 
+
+                    div.form__group
+                        label.form__label(for="password") Password 
+                        input.form__input#password(type="text", placeholder='••••••••')
+
+                    div.form__group
+                        label.form__label(for="passwordConfirm") PasswordConfirm 
+                        input.form__input#passwordConfirm(type="text", placeholder='••••••••')
+
+                    input.btn__signup(type="submit", value="Submit") 
