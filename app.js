@@ -64,6 +64,7 @@ io.on('connection', socket => {
     // the below sockets checks whether the user joined a new room and then emit an event which will update the users list in that particular room so that it can be seen by other members currently present in the room
     socket.on('newUserJoined', ({ newUserRoom, newUsername }) => {
         // console.log(newUserRoom,newUsername);
+        console.log(newUsername);
         io.to(newUserRoom).emit('updateNewUser', newUsername);
     })
     

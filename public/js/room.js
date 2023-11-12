@@ -30,27 +30,36 @@ roomForm.addEventListener('submit', async(e) => {
     const roomName = document.querySelector('#room-name').value;
     const roomPasscode = document.querySelector('#room-passcode').value;
 
-    const room = await axios({
-        method: 'POST',
-        url: 'http://127.0.0.1:3000/api/v1/rooms',
-        data:{
-            name: roomName,
-            passcode: roomPasscode,
-            userId: userId
-        }
-    });
+    try{
+        const room = await axios({
+            method: 'POST',
+            url: 'http://127.0.0.1:3000/api/v1/rooms',
+            data:{
+                name: roomName,
+                passcode: roomPasscode,
+                userId: userId
+            }
+        });
 
-    const roomId = room.data.data.data._id
-    
-    const updatedUser = await axios({
-        method: 'PATCH',
-        url: 'http://127.0.0.1:3000/api/v1/users',
-        data:{
-            roomId: roomId,
-            userId: userId
+        const roomId = room.data.data.data._id
+        
+        const updatedUser = await axios({
+            method: 'PATCH',
+            url: 'http://127.0.0.1:3000/api/v1/users',
+            data:{
+                roomId: roomId,
+                userId: userId
+            }
+        });
+        location.reload(true);
+    }catch(err){
+        console.log(err.response.data.message === 'Duplicate field value: "1212". Please use another value.')
+        if(err.response.data.message === 'Duplicate field value: "1212". Please use another value.'){
+            showAlert('error', 'The passcode is already taken');
+        }else{
+            showAlert('error', err.response.data.message);
         }
-    });
-    location.reload(true)
+    }
 })
 
 document.querySelector('#join__room').addEventListener('click', e=> {
@@ -72,41 +81,44 @@ document.querySelector('#join__room').addEventListener('click', e=> {
 
 const joinForm = document.querySelector('.form__join-room');
 joinForm.addEventListener('submit', async(e) => {
-    // e.preventDefault();
+    e.preventDefault();
     const roomPasscode = document.querySelector('#join-passcode').value;
     const userId = document.querySelector('#join__room').getAttribute('userid');
 
-    
-    const res = await axios({
-        method: 'PATCH',
-        url: 'http://127.0.0.1:3000/api/v1/rooms',
-        data:{
-            userId: userId,
-            passcode: roomPasscode
-        }
-    });
+    try{
+        const res = await axios({
+            method: 'PATCH',
+            url: 'http://127.0.0.1:3000/api/v1/rooms',
+            data:{
+                userId: userId,
+                passcode: roomPasscode
+            }
+        });
 
-    const newUserRoom = res.data.data.room.name;
-    // console.log(res.data.data.room.name)
+        const newUserRoom = res.data.data.room.name;
+        // console.log(res.data.data.room.name)
 
-    
-    const roomId = res.data.data.room._id;
-    
-    const userupdate = await axios({
-        method: 'PATCH',
-        url: 'http://127.0.0.1:3000/api/v1/users',
-        data:{
-            roomId: roomId,
-            userId: userId
-        }
-    })
+        
+        const roomId = res.data.data.room._id;
+        
+        const userupdate = await axios({
+            method: 'PATCH',
+            url: 'http://127.0.0.1:3000/api/v1/users',
+            data:{
+                roomId: roomId,
+                userId: userId
+            }
+        })
 
-    // console.log(userupdate.data.data.user.name);
-    const newUsername = userupdate.data.data.user.name;
+        // console.log(userupdate.data.data.user.name);
+        const newUsername = userupdate.data.data.user.name;
 
-    socket.emit('newUserJoined', { newUserRoom, newUsername});
+        socket.emit('newUserJoined', { newUserRoom, newUsername});
 
-    location.reload(true);
+        location.reload(true);
+    }catch(err){
+        showAlert('error', err.response.data.message);
+    }
 })
 
 

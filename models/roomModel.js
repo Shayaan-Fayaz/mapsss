@@ -8,7 +8,8 @@ const roomSchema = new mongoose.Schema({
     },
     passcode: {
         type: String,
-        required: [true, 'Room needs to have a passcode']
+        required: [true, 'Room needs to have a passcode'],
+        unique: true
     },
     slug: String,
     users: [{

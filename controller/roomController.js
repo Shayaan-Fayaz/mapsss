@@ -1,3 +1,4 @@
+const AppError = require('../utils/appError');
 const Room = require('./../models/roomModel');
 const catchAsync = require('./../utils/catchAsync');
 
@@ -38,6 +39,12 @@ exports.addUserToRoom = catchAsync(async (req, res, next) => {
             users: userId
         }
     })
+
+
+    if(!room){
+        console.log('room not found')
+        return next(new AppError('There is no room with that passcode', 400));
+    }
 
     res.status(200).json({
         status: 'success',

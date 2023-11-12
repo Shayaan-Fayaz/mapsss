@@ -16,7 +16,7 @@ router.post('/forgotPassword', authController.forgotPassword)
 router.patch('/resetPassword/:token', authController.resetPassword);
 
 router.get('/logout', authController.logout);
-router.patch('/updateMe', upload.single('photo'), userController.updateMe);
+// router.patch('/updateMe', upload.single('photo'), userController.updateMe);
 router.patch('/', userController.updateUserRoom);
 
 module.exports = router;

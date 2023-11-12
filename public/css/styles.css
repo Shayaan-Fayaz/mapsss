@@ -195,7 +195,7 @@ body{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 2rem 4rem;
-    grid-gap: 16rem;
+    grid-gap: 25rem;
 }
 
 
@@ -206,7 +206,7 @@ body{
 .form__add-room, .form__join-room{
     /* background-image: linear-gradient(to bottom right, #4169e1, #00bfff);0 */
     border: 3px solid black;
-    padding: 3rem 5rem;
+    padding: 3rem 3rem;
     padding-top: 1rem;
     margin-top: 2rem;
 }
@@ -232,6 +232,10 @@ body{
 /* #room-name, #room-passcode{
     margin-bottom: 0.6rem;
 } */
+
+#room-name, #room-passcode, #join-passcode{
+    font-size: 1.3rem;
+}
 
 .form__group-room{
     margin-bottom: 1rem;

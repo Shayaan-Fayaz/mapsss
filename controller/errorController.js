@@ -50,10 +50,17 @@ module.exports = (err, req, res, next) => {
     err.statusCode = err.statusCode || 500;
     err.status = err.status || 'error';
 
+    // console.log(err);
+
     if(process.env.NODE_ENV === 'development'){
         sendErrorDev(err, res)
     } else{
         let error = Object.assign({}, err)
+        // console.log(err.message)
+
+        if(err.message === 'There is no room with that passcode'){
+            return sendErrorProd(err, res)
+        }
 
         if(err.code === 11000) error = handleDuplicateFieldsDB(error);
         if(err.name === 'ValidationError') error = handleValidationErrorDB(error);
