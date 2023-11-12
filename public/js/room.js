@@ -33,7 +33,7 @@ roomForm.addEventListener('submit', async(e) => {
     try{
         const room = await axios({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/api/v1/rooms',
+            url: '/api/v1/rooms',
             data:{
                 name: roomName,
                 passcode: roomPasscode,
@@ -45,7 +45,7 @@ roomForm.addEventListener('submit', async(e) => {
         
         const updatedUser = await axios({
             method: 'PATCH',
-            url: 'http://127.0.0.1:3000/api/v1/users',
+            url: '/api/v1/users',
             data:{
                 roomId: roomId,
                 userId: userId
@@ -53,7 +53,7 @@ roomForm.addEventListener('submit', async(e) => {
         });
         location.reload(true);
     }catch(err){
-        console.log(err.response.data.message === 'Duplicate field value: "1212". Please use another value.')
+        // console.log(err.response.data.message === 'Duplicate field value: "1212". Please use another value.')
         if(err.response.data.message === 'Duplicate field value: "1212". Please use another value.'){
             showAlert('error', 'The passcode is already taken');
         }else{
@@ -88,7 +88,7 @@ joinForm.addEventListener('submit', async(e) => {
     try{
         const res = await axios({
             method: 'PATCH',
-            url: 'http://127.0.0.1:3000/api/v1/rooms',
+            url: '/api/v1/rooms',
             data:{
                 userId: userId,
                 passcode: roomPasscode
@@ -103,7 +103,7 @@ joinForm.addEventListener('submit', async(e) => {
         
         const userupdate = await axios({
             method: 'PATCH',
-            url: 'http://127.0.0.1:3000/api/v1/users',
+            url: '/api/v1/users',
             data:{
                 roomId: roomId,
                 userId: userId
@@ -126,7 +126,7 @@ document.querySelector('.nav__logout').addEventListener('click', async () => {
     try{
         const res = await axios({
             method: 'GET',
-            url: 'http://127.0.0.1:3000/api/v1/users/logout'
+            url: '/api/v1/users/logout'
         });
 
         if(res.data.status === 'success'){

@@ -42,7 +42,6 @@ exports.addUserToRoom = catchAsync(async (req, res, next) => {
 
 
     if(!room){
-        console.log('room not found')
         return next(new AppError('There is no room with that passcode', 400));
     }
 

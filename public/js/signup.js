@@ -6,12 +6,12 @@ document.querySelector('.form__signup').addEventListener('submit', async e => {
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
     const passwordConfirm = document.querySelector('#passwordConfirm').value;
-    console.log(name, email, password, passwordConfirm)
+    // console.log(name, email, password, passwordConfirm)
 
     try{
         const res = await axios({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/api/v1/users/signup',
+            url: '/api/v1/users/signup',
             data: {
                 name: name,
                 email: email,

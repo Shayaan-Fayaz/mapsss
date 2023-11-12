@@ -5,12 +5,12 @@ document.querySelector('.form__login').addEventListener('submit', async e => {
 
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
-    console.log(email, password)
+    // console.log(email, password)
 
     try{
         const res = await axios({
             method: 'POST', 
-            url: 'http://127.0.0.1:3000/api/v1/users/login',
+            url: '/api/v1/users/login',
             data: {
                 email: email,
                 password: password
@@ -24,8 +24,6 @@ document.querySelector('.form__login').addEventListener('submit', async e => {
             }, 3000);
         }
     }catch(err){
-        // showAlert('error', err.response.message);
-        console.log(err.response.data.message)
         showAlert('error', err.response.data.message);
     }
 

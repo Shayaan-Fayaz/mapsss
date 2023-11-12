@@ -25,8 +25,8 @@ exports.updateUserRoom = catchAsync(async (req, res, next) => {
 
 
 exports.updateMe = catchAsync(async (req, res, next) => {
-    console.log(req.file);
-    console.log(req.body);
+    // console.log(req.file);
+    // console.log(req.body);
     // Cannot change password or email using this route, throws an error if attempted
     if(req.body.password || req.body.passwordConfirm){
         return next(

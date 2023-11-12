@@ -19,7 +19,6 @@ socket.on('putMarker', marker => {
 
 // the below socket.on method will see if a new user joined using the join room form and then update it in the users list of the particular room so other users in the room can see it
 socket.on('updateNewUser', newUser => {
-        console.log(newUser);
         const usersList = document.querySelector('.users-list');
         const p = document.createElement('p');
         p.classList.add('list__user-name');
@@ -127,7 +126,7 @@ function storeLocation(){
                         const longitude =spatialData.long;
                         const res = await axios({
                                 method: 'POST',
-                                url: 'http://127.0.0.1:3000/api/v1/location',
+                                url: '/api/v1/location',
                                 data: {
                                         name: locationName,
                                         latitude: latitude,
