@@ -91,7 +91,7 @@ app.all('*', (req, res, next) => {
 
 app.use(globalErrorHandler)
 
-server.listen(3000, () => {
+server.listen(process.env.PORT, () => {
     console.log('App running on port 3000')
 })
 
