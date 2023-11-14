@@ -132,10 +132,11 @@ document.querySelector('.nav__logout').addEventListener('click', async () => {
         if(res.data.status === 'success'){
             showAlert('success', 'You are logged out');
             window.setTimeout(() => {
-                location.assign('/login');
+                location.assign('/');
             }, 3000)
         }
     }catch(err){
+        console.log(err)
         showAlert('error', 'Error in logging out. Try again later')
     }
 })

@@ -19,9 +19,9 @@ body{
 
 
 #add__room{
-    font-size: 2rem;
-    height: 3rem;
-    width: 3rem;
+    font-size: 1.5rem;
+    height: 2rem;
+    width: 2rem;
 }
 
 .form__add-room{
@@ -29,9 +29,9 @@ body{
 }
 
 #join__room{
-    font-size: 2rem;
-    height: 3rem;
-    width: 3rem;
+    font-size: 1.5rem;
+    height: 2rem;
+    width: 2rem;
 }
 
 .form__join-room{
@@ -45,12 +45,12 @@ body{
 
 /* the below is the styling for the signup page*/
 .main__signup, .main__login{
-    padding: 6rem 8rem;
+    padding: 4rem 6rem;
     background-color: lightgray;
 }
 
 .main__rooms{
-    padding: 6rem 8rem;
+    padding: 4rem 6rem;
     background-color: lightgray;
 }
 
@@ -61,7 +61,7 @@ body{
 .signup__form,.login__form{
     margin: 0 auto;
     max-width: 55rem;
-    padding: 5rem 7rem;
+    padding: 3rem 4rem;
     background-color: white;
 }
 
@@ -71,7 +71,7 @@ body{
 }
 
 .login__header, .signup__header{
-    font-size: 2.25rem;
+    font-size: 2rem;
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 3.5rem;
@@ -98,21 +98,21 @@ body{
 
 .form__label{
     margin-bottom: 0.75rem;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: 700;
 }
 
 .form__input{
-    font-size: 1.5rem;
-    padding: 1rem 1.25rem;
+    font-size: 1.2rem;
+    padding: 0.75rem 1.25rem;
     background-color: #f2f2f2;
 }
 
 
 .btn__signup, .btn__login{
     background-color: #1e90ff;
-    font-size: 1.6rem;
-    padding: 1.4rem 3rem;
+    font-size: 1.3rem;
+    padding: 1.2rem 2.4rem;
     border-radius: 10rem;
     font-weight: 400;
     text-transform: uppercase;
@@ -128,16 +128,16 @@ body{
     display: flex;
     background-image: linear-gradient(to right, #4169e1, #00bfff);
     color: white;
-    border: 4px solid black;
+    border: 2px solid black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 3rem 3rem;
+    padding: 2rem 2rem;
 }
 
 
 .user__name{
-    font-size: 2.25rem;
+    font-size: 2rem;
     text-transform: uppercase;
     /* padding: 3rem; */
     letter-spacing: 0.1rem;
@@ -146,7 +146,7 @@ body{
 }
 
 .nav__logout{
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     padding: 1rem 3rem;
     border: 3px solid white;
     border-radius: 10rem;
@@ -188,14 +188,14 @@ body{
 }
 
 .add__room-label, .join__room-label{
-    font-size: 1.4rem;
+    font-size: 1rem;
 }
 
 .add_and_join_room{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 2rem 4rem;
-    grid-gap: 25rem;
+    grid-gap: 20rem;
 }
 
 
@@ -206,7 +206,7 @@ body{
 .form__add-room, .form__join-room{
     /* background-image: linear-gradient(to bottom right, #4169e1, #00bfff);0 */
     border: 3px solid black;
-    padding: 3rem 3rem;
+    padding: 1rem 1rem;
     padding-top: 1rem;
     margin-top: 2rem;
 }
@@ -222,7 +222,7 @@ body{
     cursor: pointer;
     background-color: red;
     color: white;
-    padding: 0.5rem;
+    padding: 0.2rem;
     display: none;
 }
 /* .room__name-label, .room__passcode-label{
@@ -234,7 +234,8 @@ body{
 } */
 
 #room-name, #room-passcode, #join-passcode{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    width: 90%;
 }
 
 .form__group-room{
@@ -245,17 +246,18 @@ body{
 .submit-room{
     display: block;
     text-transform: uppercase;
-    font-size: 1.6rem;
+    font-size: 1rem;
     background-color: #00bfff;
     border-radius: 10rem;
-    padding: 1.4rem 3rem;
+    padding: 1rem 2rem;
     margin-top: 1rem;
 }
 
 
 /* the styling for the maps is done here */
 .room__name {
-    padding: 2rem;
+    padding: 1rem;
+    padding-left: 2rem;
     background-image: linear-gradient(to bottom right, #0000cd, #00bfff);
     text-transform: uppercase;
     letter-spacing: 0.1rem;
@@ -269,7 +271,7 @@ body{
 .arrow{
     font-size: 3rem;
     align-self: center;
-    margin-right: 2rem;
+    margin-right: 1rem;
     cursor: pointer;
     text-decoration: none;
     color: white;
@@ -281,18 +283,18 @@ body{
 }
 
 .users-list{
-    min-height: 900px;
+    min-height: 90vh;
     background-image: linear-gradient(to bottom right, #0000cd, #00bfff);
     width: 20rem;
     margin-right: 3rem;
     color: white;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     text-transform: capitalize;
 }
 
 .list__user-name{
     padding-left: 1rem;
-    height: 4rem;
+    height: 3rem;
     border-bottom: 2px solid white;
 }
 
@@ -301,17 +303,18 @@ body{
 }
 
 #search{
-    width: 115rem;
-    height: 3rem;
-    font-size: 1.6rem;
+    width: 85vw;
+    /* height: 2rem; */
+    font-size: 1.2rem;
+    padding: 0.5rem;
     margin-right: 1.5rem;
     margin-top: 1.5rem;
     /* font-size: 1.5rem; */
 }
 
 #search-button{
-    font-size: 1.5rem;
-    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    padding: 0.5rem;
     background-color: blue;
     color: white;
 }
@@ -324,15 +327,15 @@ body{
 
 
 .address{
-    height: 5rem;
+    height: 4rem;
     margin-bottom: 1rem;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
 }
 
 .location_chat{
     border: 2px solid #00bfff;
-    margin-bottom: 2rem;
-    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
 }
 
 .chat__info{
@@ -341,9 +344,14 @@ body{
     margin-bottom: 1rem;
     /* align-items: center; */
 }
+
+.recent-message{
+    margin-top: 0;
+    font-size: 1rem;
+}
 .history__username{
     text-transform: capitalize;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 0;
     margin-right: 2rem;
 }
@@ -351,12 +359,12 @@ body{
 .history__time{
     margin: 0;
     align-self: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .history__locationName{
     margin: 0;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 }
 
 
@@ -364,16 +372,17 @@ body{
 .alert{
     position: fixed;
     top: 0;
-    left: 25%;
+    left: 30%;
     z-index: 9999;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 400;
     text-align: center;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    padding: 1.6rem 15rem;
+    padding: 1.6rem 10rem;
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
     color: whitesmoke;
+    max-width: 25rem;
 }
 
 .alert--success {
@@ -389,8 +398,137 @@ body{
 }
 .signup__link, .login__link{
     /* margin-top: 2rem; */
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: black;
     font-weight: 400;
     text-decoration: none;
+}
+
+@media (max-width: 600px) {
+
+    .main__login, .main__signup{
+        padding: 2rem 3rem;
+    }
+    .login__form, .signup__form{
+        padding: 1rem;
+        max-width: 60rem;
+        margin: 0;
+        margin-top: 2rem;
+    }
+    .login__header, .signup__header{
+        font-size: 1.5rem;
+        /* margin: 0; */
+        margin-bottom: 1.5rem;
+    }
+
+    .form__group{
+        margin-bottom: 1.5rem;
+    }
+
+    .form__label{
+        font-size: 1rem;
+    }
+
+    .form__input{
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+
+    .btn__login, .btn__signup{
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        width: 7.5rem;
+    }
+
+    .signup__link, .login__link{
+        font-size: 1rem;
+    }
+
+    /* this is the styling for the rooms page fo user */
+    .main__rooms{
+        padding: 2rem 3rem;
+    }
+
+    .nav__all-rooms{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .user__name{
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+    }
+
+    .nav__logout{
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        width: 4rem;
+    }
+
+    .room__functions{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .rooms__group{
+        max-width: 80vw;
+        min-height: 0;
+        font-size: 1.2rem;
+    }
+
+    .individual__room{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-top: 2rem;
+        margin-bottom: 0;
+    }
+
+    .add_and_join_room{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 7rem;
+    }
+
+    .form__add-room, .form__join-room{
+        margin-top: 1rem;
+    }
+    
+    .submit-room{
+        padding: 0.5rem 1rem;
+    }
+
+    /* the below styling is for the particular room page*/
+    .room__header-username{
+        font-size: 1.2rem;
+    }
+
+    .arrow{
+        font-size: 1.5rem;
+    }
+
+    .users-and-map{
+        width: 100vw;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .users-list{
+        min-height: 0;
+        margin-right: 0rem;
+        width: 95%;
+    }
+
+    .list__user-name{
+        margin-bottom: 0rem;
+    }
+
+    .leaflet-container{
+        width: 95% !important;
+    }
+
+    #search{
+        width: 65vw;
+    }
+
+    
 }

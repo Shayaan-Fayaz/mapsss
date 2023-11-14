@@ -1,5 +1,3 @@
-// the by default stuff when the page is loaded are here
-
 const socket = io();
 
 
@@ -10,7 +8,7 @@ socket.on('putMarker', marker => {
         const history = document.querySelector('.history');
         const locationMarker = document.createElement('div');
         locationMarker.setAttribute('class', 'location_chat');
-        locationMarker.innerHTML = `<h3>Recent Message</h3><div class="chat__info"><p class="history__username">${marker.username}</p><p class="history__time">${marker.time}</p></div><p class="history__locationName">${marker.name}</p>`;
+        locationMarker.innerHTML = `<h3 class="recent-message">Recent Message</h3><div class="chat__info"><p class="history__username">${marker.username}</p><p class="history__time">${marker.time}</p></div><p class="history__locationName">${marker.name}</p>`;
         history.append(locationMarker);
         var mark = L.marker([marker.latitude, marker.longitude]).addTo(map);
         map.flyTo([marker.latitude, marker.longitude], 7)
@@ -29,7 +27,7 @@ socket.on('updateNewUser', newUser => {
 })
 
 // this sets the map
-var map = L.map('map').setView([51.505, -0.09], 3);
+var map = L.map('map').setView([51.505, -0.09], 2);
 L.tileLayer('https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=H27HL0lBXxglh3AXeBca', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'

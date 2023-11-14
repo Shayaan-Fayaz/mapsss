@@ -3,14 +3,14 @@ extends base
 block content
         div.room__name
             a(href="/me").arrow &larr;
-            h1= room.name
+            h2.room__header-username= room.name
 
         div.users-and-map
             div.users-list
                     each user in room.users 
                         p.list__user-name= user.name
             div.main-container
-                div(style="height: 900px; width:1700px;")#map
+                div(style="height: 90vh; width:80vw;")#map
 
         div.search
             form.form
