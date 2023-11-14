@@ -407,7 +407,7 @@ body{
 @media (max-width: 600px) {
 
     .main__login, .main__signup{
-        padding: 2rem 3rem;
+        padding: 8rem 3rem 10rem 3rem;
     }
     .login__form, .signup__form{
         padding: 1rem;
@@ -446,7 +446,7 @@ body{
 
     /* this is the styling for the rooms page fo user */
     .main__rooms{
-        padding: 2rem 3rem;
+        padding: 8rem 3rem 10rem 3rem;
     }
 
     .nav__all-rooms{
@@ -530,5 +530,11 @@ body{
         width: 65vw;
     }
 
-    
+    /* the below is the styling for alert*/
+    .alert{
+        max-width: 15rem;
+        left: 15%;
+        font-size: 1rem;
+        padding: 1.3rem 4rem;
+    }
 }
