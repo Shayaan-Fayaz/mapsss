@@ -24,7 +24,7 @@ dotenv.config({ path: './config.env' });
 
 const app = express();
 
-mongoose.connect(`mongodb+srv://shayaanfayaz:${process.env.DB_PASSWORD}@cluster0.8lpva5k.mongodb.net/mapsss`).then(console.log('DB connection successful')).catch(err => console.log(err));
+mongoose.connect(process.env.DATABASE).then(console.log('DB connection successful')).catch(err => console.log(err));
 
 const server = http.createServer(app);
 
