@@ -3,7 +3,8 @@ extends base
 block content
         div.room__name
             a(href="/me").arrow &larr;
-            h2.room__header-username= room.name
+            h2.room__header-name= room.name
+            h4.room__passcode= room.passcode
 
         div.users-and-map
             div.users-list
