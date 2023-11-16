@@ -413,6 +413,14 @@ body{
     text-decoration: none;
 }
 
+@media (max-width: 1250px){
+ .add_and_join_room{
+    display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 7rem;
+ }
+}
+
 @media (max-width: 600px) {
 
     .main__login, .main__signup{
@@ -514,6 +522,10 @@ body{
 
     .room__passcode{
         
+    }
+
+    .address{
+        min-height: 4rem;
     }
 
     .arrow{

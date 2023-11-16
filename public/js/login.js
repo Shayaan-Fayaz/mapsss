@@ -3,7 +3,8 @@ import { showAlert } from './alert.js'
 document.querySelector('.form__login').addEventListener('submit', async e => {
     e.preventDefault();
 
-    const email = document.querySelector('#email').value;
+    const email = document.querySelector('#email').value.trim().toLowerCase();
+    console.log(email);
     const password = document.querySelector('#password').value;
     // console.log(email, password)
 
